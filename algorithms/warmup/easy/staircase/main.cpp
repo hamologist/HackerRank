@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    
+
     for (int i = 0; i < n; i++) {
         for (int x = n-i-1; x > 0; x--) {
             cout << " ";
@@ -19,6 +19,6 @@ int main() {
         }
         cout << endl;
     }
-    
+
     return 0;
 }
