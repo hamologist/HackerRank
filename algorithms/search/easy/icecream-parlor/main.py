@@ -13,12 +13,16 @@ for case in range(0, test_cases):
 
     for x in range(0, flavor_count):
         if prices[x] in price_dict:
-            price_dict[prices[x]].append(x)
+            price_dict[prices[x]].append(x+1)
         else:
-            price_dict[prices[x]] = [x]
+            price_dict[prices[x]] = [x+1]
 
     for key in price_dict:
         lookup = dollars - key
         if lookup in price_dict:
-            print('{0} {1}'.format(key, lookup))
+            index_1 = price_dict[key].pop(0)
+            index_2 = price_dict[lookup].pop(0)
+            if index_1 > index_2:
+                index_1, index_2 = index_2,index_1
+            print('{0} {1}'.format(index_1, index_2))
             break
