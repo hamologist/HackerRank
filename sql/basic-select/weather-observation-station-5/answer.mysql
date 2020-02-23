@@ -1,0 +1,16 @@
+SELECT
+    MIN(a.CITY),
+    LENGTH(a.CITY)
+FROM
+    STATION a
+JOIN (
+    SELECT 
+        MIN(LENGTH(CITY)) minLength,
+        MAX(LENGTH(CITY)) maxLength
+    FROM
+        STATION
+) b
+ON
+    LENGTH(a.CITY)
+IN (minLength, maxLength)
+GROUP BY LENGTH(a.CITY);
