@@ -24,7 +24,5 @@ if __name__ == '__main__':
     _output = open(os.getenv("OUTPUT_PATH"), 'w')
     next(_userInput)
 
-    for _query in _userInput:
-        _output.write("{}\n".format(sherlock_and_anagrams(_query.strip())))
-
+    _output.write("\n".join((str(sherlock_and_anagrams(solution.strip())) for solution in _userInput)))
     _output.close()
